@@ -21,7 +21,8 @@
         <activity android:name=".gui.LoginActivity" />
         <activity android:name=".gui.Band.BandHomeActivity" />
         <activity android:name=".gui.Admin.AdminHomeActivity" />
-        <activity android:name=".gui.Client.ClientHomeActivity"></activity>
+        <activity android:name=".gui.Client.ClientHomeActivity" />
+        <activity android:name=".gui.SignUpActivity"></activity>
     </application>
 
 </manifest>

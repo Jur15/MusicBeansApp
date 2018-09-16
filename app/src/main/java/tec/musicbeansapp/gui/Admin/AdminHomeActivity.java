@@ -21,8 +21,8 @@ public class AdminHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_home);
         System.out.println("LOG: Created AdminHomeActivity.");
 
-        btnMangeAccount = findViewById(R.id.btnManageAccount);
-        btnManageNews = findViewById(R.id.btnManageNews);
+        btnMangeAccount = (Button) findViewById(R.id.btnManageAccount);
+        btnManageNews = (Button) findViewById(R.id.btnManageNews);
 
         btnManageNews.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -22,9 +22,9 @@ public class BandHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_band_home);
         System.out.println("LOG: Created BandHomeActivity.");
 
-        btnProfile = findViewById(R.id.btnMyProfile);
-        btnManageNews = findViewById(R.id.btnManageNews);
-        btnManageEvents = findViewById(R.id.btnManageEvents);
-        btnManageStore = findViewById(R.id.btnManageStore);
+        btnProfile = (Button) findViewById(R.id.btnMyProfile);
+        btnManageNews = (Button) findViewById(R.id.btnManageNews);
+        btnManageEvents = (Button) findViewById(R.id.btnManageEvents);
+        btnManageStore = (Button) findViewById(R.id.btnManageStore);
     }
 }

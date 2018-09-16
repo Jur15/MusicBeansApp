@@ -31,10 +31,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // UI View "binding"
-        txtUsername = findViewById(R.id.txtUsername);
-        txtPassword = findViewById(R.id.txtPassword);
-        btnLogIn = findViewById(R.id.btnConfirmLogin);
-        txvSignUp = findViewById(R.id.txvSignUp);
+        txtUsername = (EditText) findViewById(R.id.txtUsername);
+        txtPassword = (EditText) findViewById(R.id.txtPassword);
+        btnLogIn = (Button) findViewById(R.id.btnConfirmLogin);
+        txvSignUp = (TextView) findViewById(R.id.txvSignUp);
 
         btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +64,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+        txvSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("LOG: Trying to sign up. ");
+                Intent signupIntent = new Intent(LoginActivity.this , SignUpActivity.class);
+                startActivity(signupIntent);
+            }
+        });
 
 
     }
