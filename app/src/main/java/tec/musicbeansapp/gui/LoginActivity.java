@@ -1,17 +1,22 @@
 package tec.musicbeansapp.gui;
 
 import android.content.Intent;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.sql.Connection;
+
 import tec.musicbeansapp.R;
 import tec.musicbeansapp.gui.Admin.AdminHomeActivity;
 import tec.musicbeansapp.gui.Band.BandHomeActivity;
 import tec.musicbeansapp.gui.Client.ClientHomeActivity;
+import tec.musicbeansapp.gui.utils.ConnectToSQLServer;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -36,6 +41,19 @@ public class LoginActivity extends AppCompatActivity {
         btnLogIn = (Button) findViewById(R.id.btnConfirmLogin);
         txvSignUp = (TextView) findViewById(R.id.txvSignUp);
 
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+
+        StrictMode.setThreadPolicy(policy);
+
+        ConnectToSQLServer cs = new ConnectToSQLServer();
+
+        Connection cn = cs.getConnection();
+
+        if(cn != null){
+            Log.e("d","Success");
+        }else{
+            Log.e("c","Failure");
+        }
         btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
