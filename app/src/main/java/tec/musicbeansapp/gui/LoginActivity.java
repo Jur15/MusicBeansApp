@@ -65,6 +65,9 @@ public class LoginActivity extends AppCompatActivity {
                 if(cn != null){
                     System.out.println("Success");
                 }
+                else{
+                    System.out.println("Error with DB connection");
+                }
 
                 String userType = txtUsername.getText().toString();
                 String password = txtPassword.getText().toString();

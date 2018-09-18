@@ -30,6 +30,10 @@ public class AdminHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.out.println("LOG: Admin clicked MANAGE NEWS button.");
+                System.out.println("LOG: Trying to navigate to News List Activity");
+                //Go to News List Activity
+                Intent intent = new Intent(AdminHomeActivity.this , NewsListActivity.class);
+                startActivity(intent);
             }
         });
 
