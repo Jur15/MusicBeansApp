@@ -23,7 +23,8 @@
         <activity android:name=".gui.Band.BandHomeActivity" />
         <activity android:name=".gui.Admin.AdminHomeActivity" />
         <activity android:name=".gui.Client.ClientHomeActivity" />
-        <activity android:name=".gui.SignUpActivity"></activity>
+        <activity android:name=".gui.SignUpActivity" />
+        <activity android:name=".gui.Admin.ManageAccountsActivity"></activity>
     </application>
 
 </manifest>
