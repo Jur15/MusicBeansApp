@@ -1,5 +1,6 @@
 package tec.musicbeansapp.gui.Admin;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,10 +25,20 @@ public class AdminHomeActivity extends AppCompatActivity {
         btnMangeAccount = (Button) findViewById(R.id.btnManageAccount);
         btnManageNews = (Button) findViewById(R.id.btnManageNews);
 
+        // Button functionality
         btnManageNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 System.out.println("LOG: Admin clicked MANAGE NEWS button.");
+            }
+        });
+
+        btnMangeAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("LOG: Trying to navigate to Manage Account Activity");
+                Intent intent = new Intent(AdminHomeActivity.this , ManageAccountsActivity.class);
+                startActivity(intent);
             }
         });
     }

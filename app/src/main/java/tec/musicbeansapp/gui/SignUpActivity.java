@@ -7,6 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import tec.musicbeansapp.R;
 
@@ -41,6 +45,17 @@ public class SignUpActivity extends AppCompatActivity {
                 System.out.println("LOG: User " + txtFullName.getText().toString() + " trying to sign up");
                 Intent intent = new Intent( SignUpActivity.this , LoginActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        TextView toolbarText = (TextView) findViewById(R.id.txtToolbarText);
+        toolbarText.setText("Sign Up");
+        ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("LOG: Navigating back to Log in Activity");
+                finish();
             }
         });
     }
