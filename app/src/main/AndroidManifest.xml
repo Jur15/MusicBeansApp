@@ -33,6 +33,9 @@
         <activity android:name=".gui.Admin.Accounts.DeleteClientAccountActivity" />
         <activity android:name=".gui.Admin.NewsListActivity" />
         <activity android:name=".gui.Admin.News.CreateNewsActivity" />
+        <activity android:name=".gui.Client.SearchBandActivity" />
+        <activity android:name=".gui.Client.ClientNewsActivity" />
+        <activity android:name=".gui.Admin.News.DeleteNewsActivity"></activity>
     </application>
 
 </manifest>
