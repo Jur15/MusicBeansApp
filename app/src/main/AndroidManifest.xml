@@ -23,7 +23,14 @@
         <activity android:name=".gui.Admin.AdminHomeActivity" />
         <activity android:name=".gui.Client.ClientHomeActivity" />
         <activity android:name=".gui.SignUpActivity" />
-        <activity android:name=".gui.Admin.ManageAccountsActivity"></activity>
+        <activity android:name=".gui.Admin.ManageAccountsActivity" />
+        <activity android:name=".gui.Admin.Accounts.BandAccountListActivity" />
+        <activity android:name=".gui.Admin.Accounts.DeleteBandActivity" />
+        <activity android:name=".gui.Admin.Accounts.CreateBandActivity" />
+        <activity android:name=".gui.Admin.Accounts.ClientAccountListActivity" />
+        <activity android:name=".gui.Admin.Accounts.DeleteClientAccountActivity" />
+        <activity android:name=".gui.Admin.ManageNewsActivity"></activity>
+
     </application>
 
 </manifest>
