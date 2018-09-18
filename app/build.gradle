@@ -28,6 +28,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //Design library for Coordinator Layout and Toolbars
     compile 'com.android.support:design:25.4.0'
-    implementation files('build/libs/sqljdbc42.jar')
     implementation files('build/libs/jtds-1.2.7.jar')
 }
