@@ -1,5 +1,6 @@
 package tec.musicbeansapp.gui.Admin.Accounts;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import tec.musicbeansapp.R;
+import tec.musicbeansapp.gui.Admin.AdminHomeActivity;
+import tec.musicbeansapp.gui.Admin.ManageAccountsActivity;
 
 public class BandAccountListActivity extends AppCompatActivity {
 
@@ -36,6 +39,8 @@ public class BandAccountListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.out.println("LOG: Tying to create a new Band Account");
+                Intent intent = new Intent(BandAccountListActivity.this , CreateBandActivity.class);
+                startActivity(intent);
             }
         });
     }
