@@ -74,7 +74,6 @@ public class LoginActivity extends AppCompatActivity {
                     ps.setString(1,userType);//la posición de cada signo de pregunta, también
                     ps.setString(2,password);//importa el tipo de parámetro
                     rs = ps.executeQuery();//solo si tiene que retornar algo, si no sería execute()
-                    ps.close();
                     String usuario;
                     String contrasenna;
                     String tipo;
