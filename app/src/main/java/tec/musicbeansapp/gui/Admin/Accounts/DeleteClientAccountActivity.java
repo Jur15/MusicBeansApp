@@ -28,6 +28,19 @@ public class DeleteClientAccountActivity extends AppCompatActivity {
         imvClientPicture = (ImageView) findViewById(R.id.imvClientPicture);
         btnDeleleteClienteAccount = (Button) findViewById(R.id.btnDeleteClientAccount);
 
+        TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
+        toolBarText.setText("Deleting Client account");
+        ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("LOG: Navigating back to Client Account List Activity");
+                finish();
+            }
+        });
+
+
+
         btnDeleleteClienteAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

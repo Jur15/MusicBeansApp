@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import tec.musicbeansapp.R;
 import tec.musicbeansapp.gui.Admin.Accounts.BandAccountListActivity;
+import tec.musicbeansapp.gui.Admin.Accounts.ClientAccountListActivity;
 
 public class ManageAccountsActivity extends AppCompatActivity {
 
@@ -30,6 +31,15 @@ public class ManageAccountsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 System.out.println("LOG: Navigating to the bands accounts");
                 Intent intent = new Intent(ManageAccountsActivity.this , BandAccountListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnClienteAccounts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("LOG: Navigating to the clients accounts");
+                Intent intent = new Intent(ManageAccountsActivity.this , ClientAccountListActivity.class);
                 startActivity(intent);
             }
         });
