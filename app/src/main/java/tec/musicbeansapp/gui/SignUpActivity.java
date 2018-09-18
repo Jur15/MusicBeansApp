@@ -47,8 +47,8 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignUp = (Button) findViewById(R.id.btnSignUp);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-        ConnectToSQLServer cs = new ConnectToSQLServer();//esto no debe ir aquí, es una prueba
-        final Connection cn = cs.getConnection();
+        ConnectToSQLServer cs = ConnectToSQLServer.get_CTSQL_instance();//esto no debe ir aquí, es una prueba
+        final Connection cn = cs.get_Instance_Connection();
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
