@@ -30,7 +30,7 @@ public class ClientCommentNewsActivity extends AppCompatActivity {
         btnClientCommentNews = (Button) findViewById(R.id.btnClientCommentNews);
 
         TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
-        toolBarText.setText("Admin");
+        toolBarText.setText("Dummy text");
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
