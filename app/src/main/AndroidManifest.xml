@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tec.musicbeansapp">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -24,7 +25,14 @@
         <activity android:name=".gui.Admin.AdminHomeActivity" />
         <activity android:name=".gui.Client.ClientHomeActivity" />
         <activity android:name=".gui.SignUpActivity" />
-        <activity android:name=".gui.Admin.ManageAccountsActivity"></activity>
+        <activity android:name=".gui.Admin.ManageAccountsActivity" />
+        <activity android:name=".gui.Admin.Accounts.BandAccountListActivity" />
+        <activity android:name=".gui.Admin.Accounts.DeleteBandActivity" />
+        <activity android:name=".gui.Admin.Accounts.CreateBandActivity" />
+        <activity android:name=".gui.Admin.Accounts.ClientAccountListActivity" />
+        <activity android:name=".gui.Admin.Accounts.DeleteClientAccountActivity" />
+        <activity android:name=".gui.Admin.NewsListActivity" />
+        <activity android:name=".gui.Admin.News.CreateNewsActivity" />
     </application>
 
 </manifest>

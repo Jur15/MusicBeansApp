@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tec.musicbeansapp.gui.SignUpActivity">
+    tools:context="tec.musicbeansapp.gui.Admin.Accounts.DeleteClientAccountActivity">
 
     <RelativeLayout
         android:id="@+id/relLayout2"
@@ -15,106 +15,82 @@
 
     </RelativeLayout>
 
-    <EditText
-        android:id="@+id/txtPassword"
-        android:layout_width="326dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.559" />
-
-    <EditText
-        android:id="@+id/txtFullName"
-        android:layout_width="319dp"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/txvClientName"
+        android:layout_width="162dp"
+        android:layout_height="38dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Full name:"
-        android:inputType="textPersonName"
+        android:hint="Client name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.14" />
+        app:layout_constraintVertical_bias="0.179" />
 
-    <EditText
-        android:id="@+id/txtUsername"
-        android:layout_width="324dp"
-        android:layout_height="44dp"
+    <ImageView
+        android:id="@+id/imvClientPicture"
+        android:layout_width="152dp"
+        android:layout_height="141dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.902"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418" />
+        app:layout_constraintVertical_bias="0.224"
+        app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
-    <EditText
-        android:id="@+id/txtEmail"
-        android:layout_width="321dp"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/txvClientAge"
+        android:layout_width="168dp"
+        android:layout_height="36dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Email:"
-        android:inputType="textEmailAddress"
+        android:hint="Client age"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.283" />
+        app:layout_constraintVertical_bias="0.297" />
 
-    <EditText
-        android:id="@+id/txtConfirmPassword"
-        android:layout_width="328dp"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/txvClientEmail"
+        android:layout_width="315dp"
+        android:layout_height="39dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Confirm password"
-        android:inputType="textPassword"
+        android:hint="Client email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.714" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnSignUp"
-        android:layout_width="119dp"
-        android:layout_height="50dp"
+        android:id="@+id/btnDeleteClientAccount"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:text="Delete account"
         android:background="@color/pomegranate"
-        android:text="Sign up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.902" />
+        app:layout_constraintVertical_bias="0.876" />
 </android.support.constraint.ConstraintLayout>

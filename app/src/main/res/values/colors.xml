@@ -9,4 +9,7 @@
     <color name="white">#fff</color>
     <color name="black">#000000</color>
     <color name="link_blue">#005ce6</color>
+    <color name="pomegranate">#c0392b</color>
+    <color name="peterriver">#3498db</color>
+
 </resources>
