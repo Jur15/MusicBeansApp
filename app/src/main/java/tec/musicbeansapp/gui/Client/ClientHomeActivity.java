@@ -7,11 +7,9 @@ import android.view.View;
 import android.widget.Button;
 
 import tec.musicbeansapp.R;
-import tec.musicbeansapp.gui.Admin.Accounts.ClientAccountListActivity;
 
 public class ClientHomeActivity extends AppCompatActivity {
 
-    Button btnMyProfile;
     Button btnSearchBandFromClientHome;
     Button btnNews;
     Button btnBandEvents;
@@ -23,7 +21,6 @@ public class ClientHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_home);
 
-        btnMyProfile = (Button) findViewById(R.id.btnMyProfile);
         btnSearchBandFromClientHome = (Button) findViewById(R.id.btnSearchBandFromClientHome);
         btnNews = (Button) findViewById(R.id.btnNews);
         btnBandEvents = (Button) findViewById(R.id.btnBandEvents);
@@ -42,8 +39,26 @@ public class ClientHomeActivity extends AppCompatActivity {
         btnNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("LOG: Trying to navigate to Client News Activity");
-                Intent intent = new Intent(ClientHomeActivity.this , ClientNewsActivity.class);
+                System.out.println("LOG: Trying to navigate to Client General Band News Activity");
+                Intent intent = new Intent(ClientHomeActivity.this , ClientGeneralBandNewsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnBandEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("LOG: Trying to navigate to Client General Band Events Activity");
+                Intent intent = new Intent(ClientHomeActivity.this , ClientGeneralBandEventsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnMusicLabels.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("LOG: Trying to navigate to Client Label News Activity");
+                Intent intent = new Intent(ClientHomeActivity.this , ClientLabelNewsActivity.class);
                 startActivity(intent);
             }
         });

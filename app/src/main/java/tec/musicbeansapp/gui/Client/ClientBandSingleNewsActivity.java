@@ -4,23 +4,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.List;
 
 import tec.musicbeansapp.R;
 
-public class ClientNewsActivity extends AppCompatActivity {
-
-    ListView lsvNewsForClient;
+public class ClientBandSingleNewsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_client_news);
-
-        lsvNewsForClient = (ListView) findViewById(R.id.lsvNewsForClient);
+        setContentView(R.layout.activity_client_band_single_news);
 
         TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
         toolBarText.setText("Admin");
@@ -32,6 +25,5 @@ public class ClientNewsActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 }

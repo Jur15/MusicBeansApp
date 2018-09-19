@@ -92,18 +92,21 @@ public class LoginActivity extends AppCompatActivity {
                             case "A":
                                 System.out.println("LOG: Logging in as admin.");
                                 Intent intent = new Intent(LoginActivity.this , AdminHomeActivity.class);
+                                intent.putExtra("username" , usuario);
                                 startActivity(intent);
                                 break;
 
                             case "B":
                                 System.out.println("LOG: Logging in as band.");
                                 Intent intent2 = new Intent(LoginActivity.this , BandHomeActivity.class);
+                                intent2.putExtra("username" , usuario);
                                 startActivity(intent2);
                                 break;
 
                             case "C":
                                 System.out.println("LOG: Logging in as client.");
                                 Intent intent3 = new Intent(LoginActivity.this ,ClientHomeActivity.class);
+                                intent3.putExtra("username" , usuario);
                                 startActivity(intent3);
                         }
                     }else{

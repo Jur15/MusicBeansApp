@@ -34,9 +34,16 @@
         <activity android:name=".gui.Admin.NewsListActivity" />
         <activity android:name=".gui.Admin.News.CreateNewsActivity" />
         <activity android:name=".gui.Client.SearchBandActivity" />
-        <activity android:name=".gui.Client.ClientNewsActivity" />
+        <activity android:name=".gui.Client.ClientGeneralBandNewsActivity" />
         <activity android:name=".gui.Admin.News.DeleteNewsActivity" />
-        <activity android:name=".gui.Client.ClientBandProfileViewActivity"></activity>
+        <activity android:name=".gui.Client.ClientBandProfileViewActivity" />
+        <activity android:name=".gui.Client.ClientBandEventsActivity" />
+        <activity android:name=".gui.Client.ClientGeneralBandEventsActivity" />
+        <activity android:name=".gui.Client.ClientLabelNewsActivity" />
+        <activity android:name=".gui.Client.ClientSpecificBandNewsActivity" />
+        <activity android:name=".gui.Client.ClientBandSingleNewsActivity" />
+        <activity android:name=".gui.Client.ClientCommentNewsActivity" />
+        <activity android:name=".gui.Client.ClientSingleNewsCommentsActivity"></activity>
     </application>
 
 </manifest>
