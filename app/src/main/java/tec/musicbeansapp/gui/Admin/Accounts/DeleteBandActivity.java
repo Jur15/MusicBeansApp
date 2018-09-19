@@ -79,6 +79,7 @@ public class DeleteBandActivity extends AppCompatActivity {
                     ps_delete.close();
                     Intent intent = new Intent(DeleteBandActivity.this, BandAccountListActivity.class);
                     startActivity(intent);
+                    finish();
                 }catch (Exception e){
                     e.printStackTrace();
                 }
