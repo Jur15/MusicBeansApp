@@ -100,10 +100,11 @@ public class ClientBandEventsActivity extends AppCompatActivity {
         lsvClientBandGeneralEvents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Intent intent = new Intent(ClientBandEventsActivity.this, DeleteBandActivity.class);
-                //intent.putExtra("objectName", all_info.get(position));
-                //startActivity(intent);
-                //finish();
+                Intent intent = new Intent(ClientBandEventsActivity.this, ClientSingleEventActivity.class);
+                intent.putExtra("objectName", all_info.get(position));
+                intent.putExtra("username",username);
+                startActivity(intent);
+                finish();
             }
         });
     }
