@@ -10,9 +10,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import tec.musicbeansapp.R;
+import tec.musicbeansapp.gui.utils.ConnectToSQLServer;
 
 public class BandAccountListActivity extends AppCompatActivity {
 
@@ -43,7 +47,6 @@ public class BandAccountListActivity extends AppCompatActivity {
         btnAddNewBand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("LOG: Tying to create a new Band Account");
                 Intent intent = new Intent(BandAccountListActivity.this, CreateBandActivity.class);
                 startActivity(intent);
             }
@@ -51,9 +54,28 @@ public class BandAccountListActivity extends AppCompatActivity {
         prueba();
     }
     public void prueba (){
-        options.add("Prueba");//aqui va lo que tire la consulta
-        options.add("Hola");
-        options.add("Prueba");
+        ArrayList<String> bandsNames = new ArrayList<>();
+        try{
+            ConnectToSQLServer cs = ConnectToSQLServer.get_CTSQL_instance();
+            Connection cn = cs.get_Instance_Connection();
+
+            String query = "SELECT [NOMBRE] FROM [dbo].BANDA";
+            PreparedStatement ps = cn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                bandsNames.add(rs.getString(1));
+            }
+            rs.close();
+            ps.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        if(!bandsNames.isEmpty()){
+            for(int i = 0; i < bandsNames.size(); i++){
+                options.add(bandsNames.get(i));
+            }
+        }
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, options);
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -62,8 +84,6 @@ public class BandAccountListActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(BandAccountListActivity.this, DeleteBandActivity.class);
                 intent.putExtra("objectName", options.get(position));//aqui hace los parametros que quiera pasar al otro activity
-                //intent.putExtra("objectPlace", optionsEvent.get(position).getPlace().toString());
-                //intent.putExtra("objectDate", optionsEvent.get(position).getDate().toString());
                 startActivity(intent);
                 finish();
             }
