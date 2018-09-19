@@ -10,11 +10,18 @@ import tec.musicbeansapp.R;
 
 public class DeleteBandActivity extends AppCompatActivity {
 
+    TextView bandName;
+    private String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_delete_band);
 
+        bandName = (TextView) findViewById(R.id.txvBandName);
+        name=getIntent().getStringExtra("objectName").toString();
+
+
+        bandName.setText(name);
 
         TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
         toolBarText.setText("Deleting Band account");
@@ -26,7 +33,5 @@ public class DeleteBandActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
 }
