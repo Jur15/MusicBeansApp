@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -59,15 +60,8 @@ public class LoginActivity extends AppCompatActivity {
                 System.out.println("LOG: Trying to log in.");
                 StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
                 StrictMode.setThreadPolicy(policy);
-                ConnectToSQLServer cs = new ConnectToSQLServer();//esto no debe ir aquí, es una prueba
-                Connection cn = cs.getConnection();
-
-                if(cn != null){
-                    System.out.println("Success");
-                }
-                else{
-                    System.out.println("Error with DB connection");
-                }
+                ConnectToSQLServer cs = ConnectToSQLServer.get_CTSQL_instance();//esto no debe ir aquí, es una prueba
+                Connection cn = cs.get_Instance_Connection();
 
                 String userType = txtUsername.getText().toString();
                 String password = txtPassword.getText().toString();
@@ -90,27 +84,25 @@ public class LoginActivity extends AppCompatActivity {
                         switch (tipo)
                         {
                             case "A":
-                                System.out.println("LOG: Logging in as admin.");
                                 Intent intent = new Intent(LoginActivity.this , AdminHomeActivity.class);
                                 intent.putExtra("username" , usuario);
                                 startActivity(intent);
                                 break;
 
                             case "B":
-                                System.out.println("LOG: Logging in as band.");
                                 Intent intent2 = new Intent(LoginActivity.this , BandHomeActivity.class);
                                 intent2.putExtra("username" , usuario);
                                 startActivity(intent2);
                                 break;
 
                             case "C":
-                                System.out.println("LOG: Logging in as client.");
                                 Intent intent3 = new Intent(LoginActivity.this ,ClientHomeActivity.class);
                                 intent3.putExtra("username" , usuario);
                                 startActivity(intent3);
                         }
                     }else{
-                        System.out.println("No existe el usuario o es incorrecta la contraseña");
+                        Toast.makeText(LoginActivity.this, "El nombre de usuario no existe o la contraseña es incorrecta",
+                                Toast.LENGTH_SHORT).show();
                     }
                 }catch(SQLException e){
                     e.printStackTrace();

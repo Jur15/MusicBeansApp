@@ -7,7 +7,11 @@ import java.sql.DriverManager;
 
 public class ConnectToSQLServer {
 
-    public ConnectToSQLServer(){}
+    private static ConnectToSQLServer instance = null;
+    public Connection connection;
+    private ConnectToSQLServer(){
+        connection = getConnection();
+    }
 
     public Connection getConnection(){
         Connection connection = null;
@@ -22,7 +26,16 @@ public class ConnectToSQLServer {
             e.printStackTrace();
             return connection;
         }
+    }
 
+    public Connection get_Instance_Connection(){
+        return connection;
+    }
 
+    public static ConnectToSQLServer get_CTSQL_instance(){
+        if(instance == null){
+            instance = new ConnectToSQLServer();
+        }
+        return instance;
     }
 }

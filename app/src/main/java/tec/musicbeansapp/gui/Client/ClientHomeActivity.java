@@ -15,6 +15,8 @@ public class ClientHomeActivity extends AppCompatActivity {
     Button btnBandEvents;
     Button btnMusicLabels; //Do not know what this is used for
 
+    private String username;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,8 @@ public class ClientHomeActivity extends AppCompatActivity {
         btnNews = (Button) findViewById(R.id.btnNews);
         btnBandEvents = (Button) findViewById(R.id.btnBandEvents);
         btnMusicLabels = (Button) findViewById(R.id.btnMusicLabels);
+
+        username = getIntent().getStringExtra("username");
 
         btnSearchBandFromClientHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +54,7 @@ public class ClientHomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 System.out.println("LOG: Trying to navigate to Client General Band Events Activity");
                 Intent intent = new Intent(ClientHomeActivity.this , ClientGeneralBandEventsActivity.class);
+                intent.putExtra("username",username);
                 startActivity(intent);
             }
         });
