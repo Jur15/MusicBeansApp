@@ -1,5 +1,6 @@
 package tec.musicbeansapp.gui.Admin.News;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,6 +15,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import tec.musicbeansapp.R;
+import tec.musicbeansapp.gui.Admin.Accounts.BandAccountListActivity;
+import tec.musicbeansapp.gui.Admin.ManageAccountsActivity;
+import tec.musicbeansapp.gui.Admin.NewsListActivity;
 import tec.musicbeansapp.gui.utils.ConnectToSQLServer;
 
 public class CreateNewsActivity extends AppCompatActivity {
@@ -84,6 +88,8 @@ public class CreateNewsActivity extends AppCompatActivity {
                             ps_insert_N_A.close();
                             Toast.makeText(CreateNewsActivity.this, "Successfully created a new post",
                                     Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(CreateNewsActivity.this , NewsListActivity.class);
+                            startActivity(intent);
                         }
                     }else{
                         Toast.makeText(CreateNewsActivity.this, "Título y descripción de la noticia son necesarios",
