@@ -45,7 +45,13 @@
         <activity android:name=".gui.Client.ClientCommentNewsActivity" />
         <activity android:name=".gui.Client.ClientSingleNewsCommentsActivity" />
         <activity android:name=".gui.Client.ClientBandStoreActivity" />
-        <activity android:name=".gui.Client.ClientBuyItemActivity"></activity>
+        <activity android:name=".gui.Client.ClientBuyItemActivity" />
+        <activity android:name=".gui.Band.News.BandCreateNewsActivity" />
+        <activity android:name=".gui.Band.BandNewsListActivity" />
+        <activity android:name=".gui.Band.News.BandDeleteNewsActivity" />
+        <activity android:name=".gui.Band.Events.BandCreateEventsActivity" />
+        <activity android:name=".gui.Band.Events.BandDeleteEventsActivity" />
+        <activity android:name=".gui.Band.BandEventsListActivity"></activity>
     </application>
 
 </manifest>
