@@ -35,7 +35,8 @@
         <activity android:name=".gui.Admin.News.CreateNewsActivity" />
         <activity android:name=".gui.Client.SearchBandActivity" />
         <activity android:name=".gui.Client.ClientNewsActivity" />
-        <activity android:name=".gui.Admin.News.DeleteNewsActivity"></activity>
+        <activity android:name=".gui.Admin.News.DeleteNewsActivity" />
+        <activity android:name=".gui.Client.ClientBandProfileViewActivity"></activity>
     </application>
 
 </manifest>

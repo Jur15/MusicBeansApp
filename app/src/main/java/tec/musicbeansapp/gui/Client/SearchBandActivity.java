@@ -1,5 +1,6 @@
 package tec.musicbeansapp.gui.Client;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,8 +28,6 @@ public class SearchBandActivity extends AppCompatActivity {
         btnSearchBand = (ImageButton) findViewById(R.id.btnSearchBand);
         lsvBandSearchResults = (ListView) findViewById(R.id.lsvBandSearchResults);
 
-
-
         TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
         toolBarText.setText("Search band");
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
@@ -37,6 +36,15 @@ public class SearchBandActivity extends AppCompatActivity {
             public void onClick(View view) {
                 System.out.println("LOG: Navigating back to Log in Activity");
                 finish();
+            }
+        });
+
+        btnSearchBand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //FIXME: This function is made to test activities
+                Intent intent = new Intent(SearchBandActivity.this , ClientBandProfileViewActivity.class);
+                startActivity(intent);
             }
         });
 
