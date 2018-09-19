@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context="tec.musicbeansapp.gui.Admin.News.CreateNewsActivity">
 
+    <RelativeLayout
+        android:id="@+id/relLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/snippet_top_backnavigation_toolbar" />
+
+    </RelativeLayout>
+
     <ImageView
         android:id="@+id/imvNewsPicture"
         android:layout_width="219dp"
