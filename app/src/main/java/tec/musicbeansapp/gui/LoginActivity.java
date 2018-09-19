@@ -85,16 +85,19 @@ public class LoginActivity extends AppCompatActivity {
                         {
                             case "A":
                                 Intent intent = new Intent(LoginActivity.this , AdminHomeActivity.class);
+                                intent.putExtra("username" , usuario);
                                 startActivity(intent);
                                 break;
 
                             case "B":
                                 Intent intent2 = new Intent(LoginActivity.this , BandHomeActivity.class);
+                                intent2.putExtra("username" , usuario);
                                 startActivity(intent2);
                                 break;
 
                             case "C":
                                 Intent intent3 = new Intent(LoginActivity.this ,ClientHomeActivity.class);
+                                intent3.putExtra("username" , usuario);
                                 startActivity(intent3);
                         }
                     }else{

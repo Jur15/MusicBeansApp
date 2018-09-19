@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tec.musicbeansapp.gui.Client.ClientNewsActivity">
+    tools:context="tec.musicbeansapp.gui.Client.ClientGeneralBandEventsActivity">
 
     <RelativeLayout
         android:id="@+id/relLayout2"
@@ -16,35 +16,35 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/txtNewsHeader"
-        android:layout_width="313dp"
-        android:layout_height="46dp"
+        android:id="@+id/txvGeneralBandEvets"
+        android:layout_width="209dp"
+        android:layout_height="36dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:text="Events"
         android:textColor="@color/black"
         android:textAlignment="center"
-        android:text="NEWS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relLayout2"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.145" />
 
     <ListView
-        android:id="@+id/lsvNewsForClient"
-        android:layout_width="321dp"
-        android:layout_height="377dp"
-        android:layout_marginBottom="4dp"
+        android:id="@+id/lsvClientBandGeneralEvents"
+        android:layout_width="332dp"
+        android:layout_height="379dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.707" />
+        app:layout_constraintVertical_bias="0.755" />
 
 </android.support.constraint.ConstraintLayout>
