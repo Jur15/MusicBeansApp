@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Connection;
@@ -38,6 +39,17 @@ public class CreateNewsActivity extends AppCompatActivity {
         btnUploadNewsPicture = (ImageButton) findViewById(R.id.btnUploadNewsPicture);
         btnPostNews = (Button) findViewById(R.id.btnPostNews);
         txtNewsTitle = (EditText) findViewById(R.id.tituloNoticia);
+
+        TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
+        toolBarText.setText("Post news");
+        ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("LOG: Navigating back to News List Activity");
+                finish();
+            }
+        });
 
         ConnectToSQLServer cs = ConnectToSQLServer.get_CTSQL_instance();
         final Connection cn = cs.get_Instance_Connection();

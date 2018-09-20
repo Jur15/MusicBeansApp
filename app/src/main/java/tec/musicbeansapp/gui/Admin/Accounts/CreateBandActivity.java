@@ -99,7 +99,7 @@ public class CreateBandActivity extends AppCompatActivity {
                                 PreparedStatement ps_insert_band = cn.prepareStatement(query_insert_band);
                                 ps_insert_band.setString(1, band_name);
                                 ps_insert_band.setString(2, description);
-                                ps_insert_band.setFloat(3,0);
+                                ps_insert_band.setFloat(3,5);
                                 ps_insert_band.execute();
                                 ps_insert_band.close();
 
@@ -123,7 +123,13 @@ public class CreateBandActivity extends AppCompatActivity {
 
                                 Toast.makeText(CreateBandActivity.this, "El registro de la banda fue un éxito",
                                         Toast.LENGTH_SHORT).show();
-                                finish();
+
+                                bandName.setText("");
+                                bandDescription.setText("");
+                                bandPassword.setText("");
+                                bandConfirmPassword.setText("");
+
+                                //finish();
                             }
                         }catch(Exception e){
                             e.printStackTrace();

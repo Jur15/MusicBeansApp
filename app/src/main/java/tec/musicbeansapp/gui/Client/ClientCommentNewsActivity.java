@@ -21,7 +21,6 @@ import tec.musicbeansapp.gui.utils.ConnectToSQLServer;
 public class ClientCommentNewsActivity extends AppCompatActivity {
 
     // Vars
-    int newID = 0; //FIXME: Dummy ID value
 
     // UI Views
     EditText textClientComment;
@@ -47,7 +46,7 @@ public class ClientCommentNewsActivity extends AppCompatActivity {
         infoNews = getIntent().getStringExtra("objectName");
 
         TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
-        toolBarText.setText(username);
+        toolBarText.setText("Comment news");
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
 
         backArrow.setOnClickListener(new View.OnClickListener() {

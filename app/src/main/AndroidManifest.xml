@@ -56,6 +56,7 @@
         <activity android:name=".gui.Band.BandEventsListActivity" />
         <activity android:name=".gui.Client.ClientBuyItemActivity" />
         <activity android:name=".gui.Client.ClientSingleEventActivity" />
+        <activity android:name=".gui.Client.ClientSpecificMusicLabelNewsActivity"></activity>
         <activity android:name=".gui.Band.BandProfileActivity"></activity>
     </application>
 

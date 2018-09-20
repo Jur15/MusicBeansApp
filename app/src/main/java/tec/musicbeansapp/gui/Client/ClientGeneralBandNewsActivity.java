@@ -39,11 +39,12 @@ public class ClientGeneralBandNewsActivity extends AppCompatActivity {
         username = getIntent().getStringExtra("username");
 
         TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
+        toolBarText.setText("Band news");
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("LOG: Navigating back to Log in Activity");
+                System.out.println("LOG: Navigating back to Client Home Activity");
                 finish();
             }
         });
@@ -52,7 +53,7 @@ public class ClientGeneralBandNewsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 System.out.println("LOG: Clicked item: " + i);
-                //TODO: Add intent to navigate to view where the admin can delete Client Accounts
+
             }
         });
         obtenerNoticias();

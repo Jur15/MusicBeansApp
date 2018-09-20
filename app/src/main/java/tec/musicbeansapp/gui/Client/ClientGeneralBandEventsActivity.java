@@ -36,7 +36,7 @@ public class ClientGeneralBandEventsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_client_general_band_events);
 
         TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
-
+        toolBarText.setText("Band events");
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +46,6 @@ public class ClientGeneralBandEventsActivity extends AppCompatActivity {
             }
         });
         username = getIntent().getStringExtra("username");
-        toolBarText.setText(username);
         lsvClientBandGeneralEvents = (ListView) findViewById(R.id.lsvClientBandGeneralEvents);
 
         lsvClientBandGeneralEvents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
