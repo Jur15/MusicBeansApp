@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,6 +36,18 @@ public class BandAccountListActivity extends AppCompatActivity {
         bandList = (ListView) findViewById(R.id.bandList);
         btnAddNewBand = (Button) findViewById(R.id.btnAddNewBand);
         list = (ListView) findViewById(R.id.bandList);
+
+        TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
+        toolBarText.setText("Bands");
+        ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("LOG: Navigating back to Manage accounts Activity");
+                finish();
+            }
+        });
+
 
         bandList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

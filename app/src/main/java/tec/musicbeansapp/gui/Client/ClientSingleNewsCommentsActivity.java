@@ -39,7 +39,7 @@ public class ClientSingleNewsCommentsActivity extends AppCompatActivity {
         idNoticia = getIntent().getIntExtra("idNoticia",0);
         infoNoticia = getIntent().getStringExtra("info");
         TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
-        toolBarText.setText(username);
+        toolBarText.setText("News comments");
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
 
         backArrow.setOnClickListener(new View.OnClickListener() {

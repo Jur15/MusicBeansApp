@@ -52,8 +52,8 @@ public class DeleteNewsActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DeleteNewsActivity.this, NewsListActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(DeleteNewsActivity.this, NewsListActivity.class);
+                //startActivity(intent);
                 finish();
             }
         });

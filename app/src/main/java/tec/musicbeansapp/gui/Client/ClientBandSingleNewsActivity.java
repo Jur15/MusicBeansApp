@@ -43,6 +43,8 @@ public class ClientBandSingleNewsActivity extends AppCompatActivity {
         title.setText(titulo);
         description.setText(descripcion);
 
+        TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
+        toolBarText.setText("News");
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override

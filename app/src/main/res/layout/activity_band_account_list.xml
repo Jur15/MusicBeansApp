@@ -6,38 +6,28 @@
     android:layout_height="match_parent"
     tools:context="tec.musicbeansapp.gui.Admin.Accounts.BandAccountListActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/relLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <ListView
-                    android:id="@+id/bandList"
-                    android:layout_width="354dp"
-                    android:layout_height="386dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.555"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.307" />
-
-            </LinearLayout>
-        </ScrollView>
         <include layout="@layout/snippet_top_backnavigation_toolbar" />
-    </LinearLayout>
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/bandList"
+        android:layout_width="354dp"
+        android:layout_height="371dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.342" />
 
     <Button
         android:id="@+id/btnAddNewBand"

@@ -35,7 +35,7 @@ public class ClientLabelNewsActivity extends AppCompatActivity {
         lsvMusicLabelNews = (ListView) findViewById(R.id.lsvMusicLabelNews);
 
         TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
-        toolBarText.setText("Dummy text");
+        toolBarText.setText("Music Label News");
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override

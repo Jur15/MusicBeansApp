@@ -39,6 +39,7 @@ public class ClientGeneralBandNewsActivity extends AppCompatActivity {
         username = getIntent().getStringExtra("username");
 
         TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
+        toolBarText.setText("Band news");
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
