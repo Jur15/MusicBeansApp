@@ -45,9 +45,19 @@
         <activity android:name=".gui.Client.ClientCommentNewsActivity" />
         <activity android:name=".gui.Client.ClientSingleNewsCommentsActivity" />
         <activity android:name=".gui.Client.ClientBandStoreActivity" />
+        <activity android:name=".gui.Band.News.BandCreateNewsActivity" />
+        <activity android:name=".gui.Band.BandNewsListActivity" />
+        <activity android:name=".gui.Band.News.BandDeleteNewsActivity" />
+        <activity android:name=".gui.Band.Events.BandCreateEventsActivity" />
+        <activity android:name=".gui.Band.Events.BandDeleteEventsActivity" />
+        <activity android:name=".gui.Band.BandStoreActivity" />
+        <activity android:name=".gui.Band.Store.BandCreateProductActivity" />
+        <activity android:name=".gui.Band.Store.BandDeleteProductActivity" />
+        <activity android:name=".gui.Band.BandEventsListActivity" />
         <activity android:name=".gui.Client.ClientBuyItemActivity" />
         <activity android:name=".gui.Client.ClientSingleEventActivity" />
         <activity android:name=".gui.Client.ClientSpecificMusicLabelNewsActivity"></activity>
+        <activity android:name=".gui.Band.BandProfileActivity"></activity>
     </application>
 
 </manifest>
