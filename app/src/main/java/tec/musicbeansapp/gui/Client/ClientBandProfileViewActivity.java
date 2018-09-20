@@ -33,13 +33,13 @@ public class ClientBandProfileViewActivity extends AppCompatActivity {
     ImageView imvBandClientProfilePic;
     TextView txvClientBrandDescription;
 
+    TextView myScore;
+    TextView bandScore;
+
     RatingBar rbClientBandRatingBar;
 
-    Button btnClientBandEvents;
-    Button btnClientBandNews;
     Button btnClientBandStore;
     Button btnClientRateBand;
-    Button btnClientChangeRating;
     Button btnClientBandAddToFavorites;
     Button btnClientBandRemoveFromFavorites;
 
@@ -52,22 +52,21 @@ public class ClientBandProfileViewActivity extends AppCompatActivity {
         txvClientBrandDescription = (TextView) findViewById(R.id.txvClientBrandDescription);
         rbClientBandRatingBar = (RatingBar) findViewById(R.id.rbClientBandRatingBar);
 
-        btnClientBandEvents = (Button) findViewById(R.id.btnClientBandEvents);
-        btnClientBandNews = (Button) findViewById(R.id.btnClientBandNews);
         btnClientBandStore = (Button) findViewById(R.id.btnClientBandStore);
 
         btnClientRateBand = (Button) findViewById(R.id.btnClientRateBand);
-        btnClientChangeRating = (Button) findViewById(R.id.btnClientChangeRating);
+
+        myScore = (TextView) findViewById(R.id.btnClientBandEvents);
+        bandScore = (TextView) findViewById(R.id.btnClientBandNews);
 
         btnClientBandAddToFavorites = (Button) findViewById(R.id.btnClientBandAddToFavorites);
         btnClientBandRemoveFromFavorites = (Button) findViewById(R.id.btnClientBandRemoveFromFavorites);
 
         btnClientBandRemoveFromFavorites.setVisibility(View.GONE);
-        btnClientChangeRating.setVisibility(View.GONE);
 
         username = getIntent().getStringExtra("username");
 
-        String all = getIntent().getStringExtra("objectName");
+        final String all = getIntent().getStringExtra("objectName");
 
         String[] parts = all.split(",");
         idBanda = Integer.parseInt(parts[0]);
@@ -75,6 +74,8 @@ public class ClientBandProfileViewActivity extends AppCompatActivity {
         description = parts[2];
         bandRating = Float.parseFloat(parts[3]);
         band_username = parts[4];
+
+
 
         ConnectToSQLServer cs = ConnectToSQLServer.get_CTSQL_instance();
         final Connection cn = cs.get_Instance_Connection();
@@ -99,25 +100,36 @@ public class ClientBandProfileViewActivity extends AppCompatActivity {
             ps_s_c.setString(2,band_username);
             ResultSet rs_s_c = ps_s_c.executeQuery();
             if(rs_s_c.next()){
-                idCalificacion = rs.getInt(1);
-                float calificacion = rs.getFloat(2);
+                idCalificacion = rs_s_c.getInt(1);
+                float calificacion = rs_s_c.getFloat(2);
                 isRated = true;
                 bandRating = calificacion;
+            }else{
+                bandRating = 0;
             }
+            rs_s_c.close();
+            ps_s_c.close();
+
+            String query_promedio = "SELECT [PROMEDIO_CALIFICACION] FROM BANDA " +
+                    "WHERE ID_BANDA = ?";
+            PreparedStatement ps_promedio = cn.prepareStatement(query_promedio);
+            ps_promedio.setInt(1,idBanda);
+            ResultSet rs_promedio = ps_promedio.executeQuery();
+            rs_promedio.next();
+            bandScore.setText(Float.toString(rs_promedio.getFloat(1)));
+            rs_promedio.close();
 
         }catch (Exception e){
             e.printStackTrace();
         }
 
+        myScore.setText(Float.toString(bandRating));
+
+
         if (isInFavorites)
         {
             btnClientBandAddToFavorites.setVisibility(View.GONE);
             btnClientBandRemoveFromFavorites.setVisibility(View.VISIBLE);
-        }
-        if (isRated)
-        {
-            rbClientBandRatingBar.setVisibility(View.GONE);
-            btnClientRateBand.setVisibility(View.GONE);
         }
 
         TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
@@ -138,39 +150,43 @@ public class ClientBandProfileViewActivity extends AppCompatActivity {
         btnClientRateBand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                isRated= true; //TODO: Change attribute in DB as well
-                btnClientRateBand.setVisibility(View.GONE);
-                btnClientChangeRating.setVisibility(View.VISIBLE);
-                System.out.println("LOG: Rating " + bandName + " with: " + rateBand());
-            }
-        });
-
-        btnClientChangeRating.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //TODO: Change attribute in DB as well
-                System.out.println("LOG: Changing " + bandName + " rating to: " + rateBand());
-            }
-        });
-
-        btnClientBandAddToFavorites.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                float calificacion = rateBand();
                 try{
-                    String query_add_favorites = "INSERT INTO [dbo].BANDAPORCLIENTE values(?,?)";
-                    PreparedStatement ps_add_favorites = cn.prepareStatement(query_add_favorites);
-                    ps_add_favorites.setString(1,username);
-                    ps_add_favorites.setString(2,band_username);
-                    ps_add_favorites.execute();
-                    isInFavorites = true;
-                    btnClientBandAddToFavorites.setVisibility(View.GONE);
-                    btnClientBandRemoveFromFavorites.setVisibility(View.VISIBLE);
-                }catch (Exception e){
+                    if(!isRated){
+                        String query = "INSERT INTO [dbo].CALIFICACION " +
+                                "VALUES(?,?,?)";
+                        PreparedStatement ps = cn.prepareStatement(query);
+                        ps.setString(1,username);
+                        ps.setString(2,band_username);
+                        ps.setFloat(3,calificacion);
+                        ps.execute();
+                        ps.close();
+                        isRated= true;
+                    }else{
+                        String query = "UPDATE [dbo].CALIFICACION " +
+                                "SET CALIFICACION = ? " +
+                                "WHERE ID_CALIFICACION = ?";
+                        PreparedStatement ps = cn.prepareStatement(query);
+                        ps.setFloat(1,calificacion);
+                        ps.setFloat(2, idCalificacion);
+                        ps.execute();
+                        ps.close();
+                    }
+                    String query_promedio = "SELECT [PROMEDIO_CALIFICACION] FROM BANDA " +
+                            "WHERE ID_BANDA = ?";
+                    PreparedStatement ps_promedio = cn.prepareStatement(query_promedio);
+                    ps_promedio.setInt(1,idBanda);
+                    ResultSet rs_promedio = ps_promedio.executeQuery();
+                    rs_promedio.next();
+                    bandScore.setText(Float.toString(rs_promedio.getFloat(1)));
+                    rs_promedio.close();
+                    ps_promedio.close();
+                    myScore.setText(Float.toString(calificacion));
+                }catch(Exception e){
                     e.printStackTrace();
                 }
             }
         });
-
         btnClientBandRemoveFromFavorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -181,9 +197,30 @@ public class ClientBandProfileViewActivity extends AppCompatActivity {
                     ps_delete_favorites.setString(1,username);
                     ps_delete_favorites.setString(2,band_username);
                     ps_delete_favorites.execute();
+                    ps_delete_favorites.close();
                     isInFavorites = false;
                     btnClientBandRemoveFromFavorites.setVisibility(View.GONE);
                     btnClientBandAddToFavorites.setVisibility(View.VISIBLE);
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        btnClientBandAddToFavorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    String query_add_favorites = "INSERT INTO [dbo].BANDAPORCLIENTE " +
+                            "VALUES(?,?)";
+                    PreparedStatement ps_add_favorites = cn.prepareStatement(query_add_favorites);
+                    ps_add_favorites.setString(1,username);
+                    ps_add_favorites.setString(2,band_username);
+                    ps_add_favorites.execute();
+                    ps_add_favorites.close();
+                    isInFavorites = true;
+                    btnClientBandRemoveFromFavorites.setVisibility(View.VISIBLE);
+                    btnClientBandAddToFavorites.setVisibility(View.GONE);
                 }catch (Exception e) {
                     e.printStackTrace();
                 }
