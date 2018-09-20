@@ -1,5 +1,6 @@
 package tec.musicbeansapp.gui.Client;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import tec.musicbeansapp.R;
 import tec.musicbeansapp.gui.Admin.Accounts.CreateBandActivity;
+import tec.musicbeansapp.gui.utils.ConnectToSQLServer;
 
 public class ClientCommentNewsActivity extends AppCompatActivity {
 
@@ -20,6 +26,10 @@ public class ClientCommentNewsActivity extends AppCompatActivity {
     // UI Views
     EditText textClientComment;
     Button btnClientCommentNews;
+
+    private String username;
+    private int idNoticia;
+    private String infoNews;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

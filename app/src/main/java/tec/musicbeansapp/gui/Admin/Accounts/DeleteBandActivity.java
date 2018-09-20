@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -77,6 +78,8 @@ public class DeleteBandActivity extends AppCompatActivity {
                     ps_delete.setString(1, username);
                     ps_delete.execute();
                     ps_delete.close();
+                    Toast.makeText(DeleteBandActivity.this, "Succesfully eliminated the band",
+                            Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(DeleteBandActivity.this, BandAccountListActivity.class);
                     startActivity(intent);
                     finish();

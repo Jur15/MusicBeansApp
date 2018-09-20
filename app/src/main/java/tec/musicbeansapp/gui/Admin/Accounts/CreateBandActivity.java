@@ -123,7 +123,13 @@ public class CreateBandActivity extends AppCompatActivity {
 
                                 Toast.makeText(CreateBandActivity.this, "El registro de la banda fue un éxito",
                                         Toast.LENGTH_SHORT).show();
-                                finish();
+
+                                bandName.setText("");
+                                bandDescription.setText("");
+                                bandPassword.setText("");
+                                bandConfirmPassword.setText("");
+
+                                //finish();
                             }
                         }catch(Exception e){
                             e.printStackTrace();
