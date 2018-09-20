@@ -50,6 +50,9 @@
         <activity android:name=".gui.Band.News.BandDeleteNewsActivity" />
         <activity android:name=".gui.Band.Events.BandCreateEventsActivity" />
         <activity android:name=".gui.Band.Events.BandDeleteEventsActivity" />
+        <activity android:name=".gui.Band.BandStoreActivity" />
+        <activity android:name=".gui.Band.Store.BandCreateProductActivity" />
+        <activity android:name=".gui.Band.Store.BandDeleteProductActivity" />
         <activity android:name=".gui.Band.BandEventsListActivity"></activity>
         <activity android:name=".gui.Client.ClientBuyItemActivity" />
         <activity android:name=".gui.Client.ClientSingleEventActivity"></activity>

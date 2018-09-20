@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Connection;
@@ -39,6 +40,17 @@ public class BandCreateEventsActivity extends AppCompatActivity {
         txtEventPlace = (EditText) findViewById(R.id.txtEventPlace_BandCreateEvents);
         txtEventDescripction = (EditText) findViewById(R.id.txtEventDescription_BandCreateEvents);
         btnPostEvent = (Button) findViewById(R.id.btnPostEvent_BandCreateEvents);
+
+        TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
+        toolBarText.setText("Publicar evento");
+        ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("LOG: Navigating back to Band Events List Activity");
+                finish();
+            }
+        });
 
         ConnectToSQLServer cs = ConnectToSQLServer.get_CTSQL_instance();
         final Connection cn = cs.get_Instance_Connection();
@@ -79,12 +91,15 @@ public class BandCreateEventsActivity extends AppCompatActivity {
                         ps_insert_E_B.close();
                         Toast.makeText(BandCreateEventsActivity.this, "Evento creado con éxito",
                                 Toast.LENGTH_SHORT).show();
+                        finish();
                     } else {
                         Toast.makeText(BandCreateEventsActivity.this, "Fecha, lugar y descripción del evento son necesarios",
                                 Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Toast.makeText(BandCreateEventsActivity.this, "Error al crear evento",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });

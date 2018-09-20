@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Connection;
@@ -39,6 +40,17 @@ public class BandCreateNewsActivity extends AppCompatActivity {
         btnUploadNewsPicture = (ImageButton) findViewById(R.id.btnUploadNewsPicture_BandCreateNews);
         btnPostNews = (Button) findViewById(R.id.btnPostNews_BandCreateNews);
         txtNewsTitle = (EditText) findViewById(R.id.tituloNoticia_BandCreateNews);
+
+        TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
+        toolBarText.setText("Publicar noticia");
+        ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("LOG: Navigating back to Band News Activity");
+                finish();
+            }
+        });
 
         ConnectToSQLServer cs = ConnectToSQLServer.get_CTSQL_instance();
         final Connection cn = cs.get_Instance_Connection();
@@ -88,6 +100,7 @@ public class BandCreateNewsActivity extends AppCompatActivity {
                             ps_insert_N_A.close();
                             Toast.makeText(BandCreateNewsActivity.this, "Noticia creada con éxito",
                                     Toast.LENGTH_SHORT).show();
+                            finish();
                         }
                     } else {
                         Toast.makeText(BandCreateNewsActivity.this, "Título y descripción de la noticia son necesarios",

@@ -57,5 +57,17 @@ public class BandHomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnManageStore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("LOG: Band clicked MANAGE STORE button.");
+                System.out.println("LOG: Trying to navigate to Band Store Activity");
+                //Go to Band Store Activity
+                Intent intent = new Intent(BandHomeActivity.this , BandStoreActivity.class);
+                intent.putExtra("username",usuario);
+                startActivity(intent);
+            }
+        });
     }
 }
