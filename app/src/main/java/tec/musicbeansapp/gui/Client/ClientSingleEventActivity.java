@@ -1,5 +1,6 @@
 package tec.musicbeansapp.gui.Client;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,11 @@ public class ClientSingleEventActivity extends AppCompatActivity {
     TextView txvClientSingleEventTitle;
     TextView txvClientSingleEventDate;
 
+    private String lugar;
+    private String fecha;
+    private String descripcion;
+    private String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +35,18 @@ public class ClientSingleEventActivity extends AppCompatActivity {
         txvClientSingleEventTitle = (TextView) findViewById(R.id.txvClientSingleEventTitle);
         txvClientSingleEventDate = (TextView) findViewById(R.id.txvClientSingleEventDate);
 
+        String info = getIntent().getStringExtra("objectName");
+        String[] parts = info.split(",");
+        descripcion = parts[0];
+        lugar = parts[1];
+        fecha = parts[2];
+
+        txvClientSingleEventTitle.setText(lugar);
+        txvClientSingleEventDate.setText(fecha);
+        txvClientSingleEventDescription.setText(descripcion);
+
+        username = getIntent().getStringExtra("username");
+
 
         TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
         toolBarText.setText("Single event");
@@ -36,7 +54,9 @@ public class ClientSingleEventActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("LOG: Navigating back to Log in Activity");
+                Intent intent = new Intent(ClientSingleEventActivity.this, ClientGeneralBandEventsActivity.class);
+                intent.putExtra("username", username);
+                startActivity(intent);
                 finish();
             }
         });

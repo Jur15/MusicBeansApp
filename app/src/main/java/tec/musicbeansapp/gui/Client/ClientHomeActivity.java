@@ -35,6 +35,7 @@ public class ClientHomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 System.out.println("LOG: Trying to navigate to Search Band Activity");
                 Intent intent = new Intent(ClientHomeActivity.this , SearchBandActivity.class);
+                intent.putExtra("username",username);
                 startActivity(intent);
             }
         });
@@ -45,6 +46,7 @@ public class ClientHomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 System.out.println("LOG: Trying to navigate to Client General Band News Activity");
                 Intent intent = new Intent(ClientHomeActivity.this , ClientGeneralBandNewsActivity.class);
+                intent.putExtra("username",username);
                 startActivity(intent);
             }
         });
