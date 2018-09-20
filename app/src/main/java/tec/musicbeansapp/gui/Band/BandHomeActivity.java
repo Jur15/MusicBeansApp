@@ -34,6 +34,18 @@ public class BandHomeActivity extends AppCompatActivity {
         btnManageStore = (Button) findViewById(R.id.btnManageStore);
 
         // Button functionality
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("LOG: Band clicked PROFILE button.");
+                System.out.println("LOG: Trying to navigate to Band Profile Activity");
+                //Go to Band Profile Activity
+                Intent intent = new Intent(BandHomeActivity.this , BandProfileActivity.class);
+                intent.putExtra("username",usuario);
+                startActivity(intent);
+            }
+        });
+
         btnManageNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
