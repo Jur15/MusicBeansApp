@@ -21,7 +21,6 @@ import tec.musicbeansapp.gui.utils.ConnectToSQLServer;
 public class ClientCommentNewsActivity extends AppCompatActivity {
 
     // Vars
-    int newID = 0; //FIXME: Dummy ID value
 
     // UI Views
     EditText textClientComment;
