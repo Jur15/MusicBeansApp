@@ -1,5 +1,6 @@
 package tec.musicbeansapp.gui.Admin.Accounts;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -50,8 +51,9 @@ public class CreateBandActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
+                Intent intent = new Intent(CreateBandActivity.this, BandAccountListActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

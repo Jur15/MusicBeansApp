@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tec.musicbeansapp.gui.Admin.News.DeleteNewsActivity">
+    tools:context="tec.musicbeansapp.gui.Client.ClientSingleEventActivity">
 
     <RelativeLayout
         android:id="@+id/relLayout2"
@@ -15,70 +15,54 @@
 
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imvNewsPictureDeleteActivity"
-        android:layout_width="235dp"
-        android:layout_height="185dp"
+    <TextView
+        android:id="@+id/txvClientSingleEventDescription"
+        android:layout_width="212dp"
+        android:layout_height="64dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:hint="Event description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265"
-        app:srcCompat="@drawable/ic_launcher_background"
-        tools:ignore="VectorDrawableCompat" />
+        app:layout_constraintVertical_bias="0.529" />
 
     <TextView
-    android:id="@+id/txvNewsDescriptionFromAdminDelete"
-    android:layout_width="241dp"
-    android:layout_height="76dp"
-    android:layout_marginBottom="8dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp"
-    android:text="Description"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.503"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.654" />
-
-    <TextView
-        android:id="@+id/txvNewsTitleFromAdminDelete"
-        android:layout_width="236dp"
-        android:layout_height="18dp"
+        android:id="@+id/txvClientSingleEventTitle"
+        android:layout_width="237dp"
+        android:layout_height="49dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Title
-"
+        android:hint="Event title"
+        android:textColor="@color/black"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.595"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112" />
+        app:layout_constraintVertical_bias="0.151" />
 
-    <Button
-        android:id="@+id/btnDeleteNewsFromAdmin"
+    <TextView
+        android:id="@+id/txvClientSingleEventDate"
         android:layout_width="167dp"
-        android:layout_height="59dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/pomegranate"
-        android:text="Delete"
+        android:hint="Event date"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.388"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.904" />
+        app:layout_constraintVertical_bias="0.33" />
 
 </android.support.constraint.ConstraintLayout>
