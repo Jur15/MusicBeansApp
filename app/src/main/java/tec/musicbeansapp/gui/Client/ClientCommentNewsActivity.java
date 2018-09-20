@@ -43,7 +43,7 @@ public class ClientCommentNewsActivity extends AppCompatActivity {
         btnClientCommentNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("LOG: Trying to post a comment on news: " + newID );
+                System.out.println("LOG: Trying to post a comment on newsTitles: " + newID );
                 Toast.makeText(ClientCommentNewsActivity.this, "Comment posted",
                         Toast.LENGTH_SHORT).show();
             }

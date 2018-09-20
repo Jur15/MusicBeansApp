@@ -10,6 +10,10 @@ import tec.musicbeansapp.R;
 
 public class ClientSingleEventActivity extends AppCompatActivity {
 
+    // Vars
+    private String name;
+
+    // UI Views
     TextView txvClientSingleEventDescription;
     TextView txvClientSingleEventTitle;
     TextView txvClientSingleEventDate;
@@ -18,6 +22,8 @@ public class ClientSingleEventActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_single_event);
+
+        name = getIntent().getStringExtra("objectName").toString();
 
         txvClientSingleEventDescription = (TextView) findViewById(R.id.txvClientSingleEventDescription);
         txvClientSingleEventTitle = (TextView) findViewById(R.id.txvClientSingleEventTitle);

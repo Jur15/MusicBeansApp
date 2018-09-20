@@ -46,7 +46,8 @@
         <activity android:name=".gui.Client.ClientSingleNewsCommentsActivity" />
         <activity android:name=".gui.Client.ClientBandStoreActivity" />
         <activity android:name=".gui.Client.ClientBuyItemActivity" />
-        <activity android:name=".gui.Client.ClientSingleEventActivity"></activity>
+        <activity android:name=".gui.Client.ClientSingleEventActivity" />
+        <activity android:name=".gui.Client.ClientSpecificMusicLabelNewsActivity"></activity>
     </application>
 
 </manifest>
