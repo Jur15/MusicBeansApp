@@ -99,7 +99,7 @@ public class CreateBandActivity extends AppCompatActivity {
                                 PreparedStatement ps_insert_band = cn.prepareStatement(query_insert_band);
                                 ps_insert_band.setString(1, band_name);
                                 ps_insert_band.setString(2, description);
-                                ps_insert_band.setFloat(3,0);
+                                ps_insert_band.setFloat(3,5);
                                 ps_insert_band.execute();
                                 ps_insert_band.close();
 

@@ -1,5 +1,6 @@
 package tec.musicbeansapp.gui.Client;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -76,7 +77,7 @@ public class ClientBandProfileViewActivity extends AppCompatActivity {
         band_username = parts[4];
 
         ConnectToSQLServer cs = ConnectToSQLServer.get_CTSQL_instance();
-        Connection cn = cs.get_Instance_Connection();
+        final Connection cn = cs.get_Instance_Connection();
 
         try{
             String query = "SELECT [BANDA] FROM [dbo].BANDAPORCLIENTE " +
@@ -113,7 +114,6 @@ public class ClientBandProfileViewActivity extends AppCompatActivity {
             btnClientBandAddToFavorites.setVisibility(View.GONE);
             btnClientBandRemoveFromFavorites.setVisibility(View.VISIBLE);
         }
-
         if (isRated)
         {
             rbClientBandRatingBar.setVisibility(View.GONE);
@@ -124,10 +124,13 @@ public class ClientBandProfileViewActivity extends AppCompatActivity {
         toolBarText.setText(bandName);
         txvClientBrandDescription.setText(description);
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
+
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("LOG: Navigating back to Search Band Activity");
+                Intent intent = new Intent(ClientBandProfileViewActivity.this, SearchBandActivity.class);
+                intent.putExtra("username",username);
+                startActivity(intent);
                 finish();
             }
         });
@@ -153,21 +156,37 @@ public class ClientBandProfileViewActivity extends AppCompatActivity {
         btnClientBandAddToFavorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                isInFavorites = true; //TODO: Change attribute in DB as well
-                btnClientBandAddToFavorites.setVisibility(View.GONE);
-                btnClientBandRemoveFromFavorites.setVisibility(View.VISIBLE);
-                System.out.println("LOG: Adding " + bandName + " to favorites bands");
-
+                try{
+                    String query_add_favorites = "INSERT INTO [dbo].BANDAPORCLIENTE values(?,?)";
+                    PreparedStatement ps_add_favorites = cn.prepareStatement(query_add_favorites);
+                    ps_add_favorites.setString(1,username);
+                    ps_add_favorites.setString(2,band_username);
+                    ps_add_favorites.execute();
+                    isInFavorites = true;
+                    btnClientBandAddToFavorites.setVisibility(View.GONE);
+                    btnClientBandRemoveFromFavorites.setVisibility(View.VISIBLE);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
             }
         });
 
         btnClientBandRemoveFromFavorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: Change attribute in DB as well
-                isInFavorites = false;
-                btnClientBandRemoveFromFavorites.setVisibility(View.GONE);
-                btnClientBandAddToFavorites.setVisibility(View.VISIBLE);
+                try{
+                    String query_delete_favorites = "DELETE FROM [dbo].BANDAPORCLIENTE " +
+                            "WHERE CLIENTE = ? AND BANDA = ?";
+                    PreparedStatement ps_delete_favorites = cn.prepareStatement(query_delete_favorites);
+                    ps_delete_favorites.setString(1,username);
+                    ps_delete_favorites.setString(2,band_username);
+                    ps_delete_favorites.execute();
+                    isInFavorites = false;
+                    btnClientBandRemoveFromFavorites.setVisibility(View.GONE);
+                    btnClientBandAddToFavorites.setVisibility(View.VISIBLE);
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
