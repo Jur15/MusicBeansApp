@@ -8,12 +8,22 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import tec.musicbeansapp.R;
+import tec.musicbeansapp.gui.utils.ConnectToSQLServer;
 
 public class ClientBandProfileViewActivity extends AppCompatActivity {
 
     // Vars
-    String bandName = "Dummy band name";
+    private String bandName;
+    private String description;
+    private String username;
+    private String band_username;
+    private int idCalificacion;
+    private int idBanda;
     Boolean isInFavorites = false;
     Boolean isRated = false;
     float bandRating = 0;
@@ -54,6 +64,50 @@ public class ClientBandProfileViewActivity extends AppCompatActivity {
         btnClientBandRemoveFromFavorites.setVisibility(View.GONE);
         btnClientChangeRating.setVisibility(View.GONE);
 
+        username = getIntent().getStringExtra("username");
+
+        String all = getIntent().getStringExtra("objectName");
+
+        String[] parts = all.split(",");
+        idBanda = Integer.parseInt(parts[0]);
+        bandName = parts[1];
+        description = parts[2];
+        bandRating = Float.parseFloat(parts[3]);
+        band_username = parts[4];
+
+        ConnectToSQLServer cs = ConnectToSQLServer.get_CTSQL_instance();
+        Connection cn = cs.get_Instance_Connection();
+
+        try{
+            String query = "SELECT [BANDA] FROM [dbo].BANDAPORCLIENTE " +
+                    "WHERE CLIENTE = ? AND BANDA = ?";
+            PreparedStatement ps = cn.prepareStatement(query);
+            ps.setString(1,username);
+            ps.setString(2,band_username);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                isInFavorites = true;
+            }
+            rs.close();
+            ps.close();
+
+            String query_search_calification = "SELECT CA.ID_CALIFICACION, CA.CALIFICACION FROM [dbo].CALIFICACION " +
+                    "as CA WHERE CLIENTE = ? AND BANDA = ?";
+            PreparedStatement ps_s_c = cn.prepareStatement(query_search_calification);
+            ps_s_c.setString(1,username);
+            ps_s_c.setString(2,band_username);
+            ResultSet rs_s_c = ps_s_c.executeQuery();
+            if(rs_s_c.next()){
+                idCalificacion = rs.getInt(1);
+                float calificacion = rs.getFloat(2);
+                isRated = true;
+                bandRating = calificacion;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         if (isInFavorites)
         {
             btnClientBandAddToFavorites.setVisibility(View.GONE);
@@ -68,6 +122,7 @@ public class ClientBandProfileViewActivity extends AppCompatActivity {
 
         TextView toolBarText = (TextView) findViewById(R.id.txtToolbarText);
         toolBarText.setText(bandName);
+        txvClientBrandDescription.setText(description);
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
